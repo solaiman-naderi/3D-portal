@@ -1,6 +1,6 @@
 import { useGLTF } from "@react-three/drei";
 import { useEffect } from "react";
-import { DoubleSide } from "three";
+import { Color, DoubleSide } from "three";
 
 const Portal = () => {
   const model = useGLTF("/models/portal.glb");
@@ -14,6 +14,7 @@ const Portal = () => {
     let maskMesh = mask.scene.children[0];
 
     maskMesh.material.side = DoubleSide;
+    maskMesh.material.color = new Color(1, 1, 1);
   }, [model, mask]);
   return (
     <>

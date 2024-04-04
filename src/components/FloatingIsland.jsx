@@ -1,10 +1,10 @@
 import { useGLTF } from "@react-three/drei";
 import { useEffect } from "react";
 import { BufferAttribute, Color } from "three";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+
 const FloatingIsland = () => {
   const gltf = useGLTF("/models/floating_island.glb");
-  console.log(gltf);
+
   useEffect(() => {
     if (!gltf) return;
     let mesh = gltf.scene.children[0];
@@ -15,6 +15,7 @@ const FloatingIsland = () => {
     mesh.material.lightMapIntensity = 400;
     mesh.material.color = new Color(0.04, 0.06, 0.1);
   }, [gltf]);
+
   return (
     <>
       <primitive object={gltf.scene} />
